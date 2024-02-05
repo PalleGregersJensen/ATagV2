@@ -97,7 +97,7 @@ public abstract class Tag {
     public String toHtmlString() {
         String s1 = "";
         if (this.getColor().length() > 0) {
-            s1 = "<" + tagName + " style=" + '"' + "background-color:" + color + '"' + ">";
+            s1 = "<" + tagName + " style=" + '"' + "background-color:" + color + "; font-size:" + " 100px" + '"' + ">";
         } else {
             s1 = "<" + tagName + ">";
         }
