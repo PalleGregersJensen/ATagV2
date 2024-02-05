@@ -14,6 +14,9 @@ public abstract class Tag {
     private List<Tag> children;
     private String color = ""; //#ff0000 = red
 
+    // Font-size variable
+    private String font = "";
+
     public Tag() {
         children = new ArrayList<>();
     }
