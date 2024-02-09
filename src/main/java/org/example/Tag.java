@@ -8,6 +8,8 @@ import java.util.List;
 
 public abstract class Tag {
 
+    private static int nextId = 0;
+
     private String id;
     private String tagName;
     private String text;
@@ -15,6 +17,7 @@ public abstract class Tag {
     private String color = ""; //#ff0000 = red
 
     public Tag() {
+        id = "" + Tag.nextId++;
         children = new ArrayList<>();
     }
 
@@ -93,6 +96,9 @@ public abstract class Tag {
         return s1;
     }
 
+    public boolean hasLineShift(){
+        return true;
+    }
 
     public String toHtmlString() {
         String s1 = "";
@@ -103,7 +109,11 @@ public abstract class Tag {
         }
         for (Tag tag: children) {
             String child = tag.toHtmlString();
-            s1 = s1 + (char) 10 + child;
+            if(this.hasLineShift()) {
+                s1 = s1 + (char) 10 + child;
+            } else {
+                s1 = s1 + child;
+            }
         }
         s1 = s1 + text + "</" + tagName + ">";
         return s1;

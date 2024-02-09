@@ -7,6 +7,7 @@ public class HTag extends Tag {
     public HTag(int hnum) {
         number = (byte) hnum;
         this.setNumber(number);
+        super.setText(text);
     }
 
     public byte getNumber() {
